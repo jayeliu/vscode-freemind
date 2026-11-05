@@ -55,7 +55,7 @@
 ```bash
 npm install
 npm run compile     # 构建到 media/
-npm test            # node:test，覆盖解析、最小补丁、增删改移、布局不重叠、样本文件往返
+npm test            # node:test，覆盖解析、最小补丁、增删改移、布局不重叠、示例文件往返
 npm run typecheck   # tsc --noEmit
 ```
 
@@ -64,9 +64,13 @@ npm run typecheck   # tsc --noEmit
 打包成本地 vsix：
 
 ```bash
-npm run package     # 产出 mindmap-freemind-0.0.1.vsix
-code --install-extension mindmap-freemind-0.0.1.vsix
+npm run package     # 产出 vscode-freemind-0.0.1.vsix
+code --install-extension vscode-freemind-0.0.1.vsix
 ```
+
+发布到 Marketplace（维护者）：先在终端 `vsce login jaeliu2000`，再 `npm run package && npx vsce publish --packagePath vscode-freemind-0.0.1.vsix`。
+
+从 Marketplace 安装（发布后）：`code --install-extension jaeliu2000.vscode-freemind`。
 
 ## 结构
 
@@ -79,6 +83,7 @@ src/extension.ts     CustomTextEditorProvider、CSP、命令
 src/webview/main.ts  渲染与交互（无框架，零运行时依赖）
 test/mm.test.ts      node:test：解析/补丁/编辑操作
 test/layout.test.ts   node:test：随机树断言节点矩形不相交
+test/fixtures/       中性的示例 .mm（不含任何内部资料）
 ```
 
 运行时零依赖；打包体积约 50 KB。

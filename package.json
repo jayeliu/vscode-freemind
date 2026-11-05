@@ -1,11 +1,18 @@
 {
-  "name": "mindmap-freemind",
+  "name": "vscode-freemind",
   "displayName": "FreeMind 思维导图",
   "description": "查看与编辑 FreeMind (.mm) 思维导图，未改动的内容按原样保留",
   "version": "0.0.1",
-  "publisher": "local",
-  "private": true,
+  "publisher": "jaeliu2000",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayeliu/vscode-freemind.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jayeliu/vscode-freemind/issues"
+  },
+  "homepage": "https://github.com/jayeliu/vscode-freemind#readme",
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -74,7 +81,7 @@
     "watch": "node esbuild.mjs --watch",
     "test": "node --test test",
     "typecheck": "tsc -p tsconfig.json",
-    "package": "npm run compile && vsce package --no-dependencies --allow-missing-repository",
+    "package": "npm run compile && vsce package --no-dependencies",
     "vscode:prepublish": "npm run compile"
   },
   "devDependencies": {
