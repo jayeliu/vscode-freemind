@@ -1,0 +1,12 @@
+.vscode/**
+src/**
+test/**
+tsconfig.json
+esbuild.mjs
+**/*.map
+**/*.ts
+.gitignore
+.agents/**
+skills-lock.json
+*.xlsx
+*.mm

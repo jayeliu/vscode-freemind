@@ -1,0 +1,90 @@
+{
+  "name": "mindmap-freemind",
+  "displayName": "FreeMind 思维导图",
+  "description": "查看与编辑 FreeMind (.mm) 思维导图，未改动的内容按原样保留",
+  "version": "0.0.1",
+  "publisher": "local",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "freemind",
+    "mindmap",
+    "mm",
+    "思维导图"
+  ],
+  "main": "./media/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "mindmap.editor",
+        "displayName": "思维导图编辑器",
+        "selector": [
+          {
+            "filenamePattern": "*.mm"
+          }
+        ],
+        "priority": "default"
+      },
+      {
+        "viewType": "mindmap.preview",
+        "displayName": "思维导图（只读预览）",
+        "selector": [
+          {
+            "filenamePattern": "*.mm"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "mindmap.openPreview",
+        "title": "只读预览",
+        "category": "思维导图"
+      },
+      {
+        "command": "mindmap.openText",
+        "title": "用文本编辑器打开",
+        "category": "思维导图"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "mindmap.openPreview",
+          "when": "resourceExtname == .mm"
+        },
+        {
+          "command": "mindmap.openText",
+          "when": "resourceExtname == .mm"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "test": "node --test test",
+    "typecheck": "tsc -p tsconfig.json",
+    "package": "npm run compile && vsce package --no-dependencies --allow-missing-repository",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0"
+  },
+  "allowScripts": {
+    "esbuild@0.24.2": true
+  }
+}
