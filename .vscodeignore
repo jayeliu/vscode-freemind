@@ -7,6 +7,8 @@ esbuild.mjs
 **/*.ts
 .gitignore
 .agents/**
+.serena/**
 skills-lock.json
+assets/icon.svg
 *.xlsx
 *.mm

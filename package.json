@@ -2,7 +2,7 @@
   "name": "vscode-freemind",
   "displayName": "FreeMind 思维导图",
   "description": "查看与编辑 FreeMind (.mm) 思维导图，未改动的内容按原样保留",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "jaeliu2000",
   "icon": "assets/icon.png",
   "license": "MIT",
